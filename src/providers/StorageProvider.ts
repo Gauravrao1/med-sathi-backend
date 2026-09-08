@@ -1,8 +1,4 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { uploadDir } from '../utils/runtimePaths.js';
 
 export interface StorageProvider {
   upload(file: Express.Multer.File): Promise<string>;
@@ -13,7 +9,7 @@ export class LocalStorageProvider implements StorageProvider {
   private uploadDir: string;
 
   constructor() {
-    this.uploadDir = path.resolve(__dirname, '../../uploads');
+    this.uploadDir = uploadDir;
   }
 
   async upload(file: Express.Multer.File): Promise<string> {

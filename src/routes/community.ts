@@ -8,11 +8,7 @@ import multer from 'multer';
 import fs from 'fs';
 import path from 'path';
 import { LocalStorageProvider } from '../providers/StorageProvider.js';
-
-const uploadDir = 'uploads/';
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+import { uploadDir } from '../utils/runtimePaths.js';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, uploadDir),

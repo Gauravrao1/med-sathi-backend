@@ -1,9 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import './db/index.js';
+import { uploadDir } from './utils/runtimePaths.js';
 
 import authRoutes from './routes/auth.js';
 import medRoutes from './routes/medicines.js';
@@ -12,8 +11,6 @@ import communityRoutes from './routes/community.js';
 import expRoutes from './routes/experiences.js';
 import chatRoutes from './routes/chat.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const app = express();
 const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
   .split(',')
@@ -31,7 +28,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static(path.resolve(__dirname, '../uploads')));
+app.use('/uploads', express.static(uploadDir));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/medicines', medRoutes);

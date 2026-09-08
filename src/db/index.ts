@@ -1,14 +1,9 @@
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Sqlite from 'better-sqlite3';
 import * as schema from './schema.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { databasePath } from '../utils/runtimePaths.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.resolve(__dirname, '../../sqlite.db');
-
-export const sqlite: Sqlite.Database = new Sqlite(dbPath);
+export const sqlite: Sqlite.Database = new Sqlite(databasePath);
 export const db = drizzle(sqlite, { schema });
 
 // Auto create tables if they don't exist

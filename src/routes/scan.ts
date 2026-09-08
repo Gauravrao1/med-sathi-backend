@@ -8,15 +8,12 @@ import { v4 as uuidv4 } from 'uuid';
 import multer from 'multer';
 import fs from 'fs';
 import { GeminiImageScanner } from '../providers/ImageScanProvider.js';
+import { uploadDir } from '../utils/runtimePaths.js';
 
 const router = Router();
 const dataProvider = new SeedDataProvider();
 const imageScanner = new GeminiImageScanner();
 
-const uploadDir = 'uploads/';
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
 const upload = multer({ 
   dest: uploadDir,
   limits: { fileSize: 10 * 1024 * 1024 },
