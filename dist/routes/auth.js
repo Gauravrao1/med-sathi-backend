@@ -1,0 +1,66 @@
+import { Router } from 'express';
+import { db } from '../db/index.js';
+import * as schema from '../db/schema.js';
+import { eq } from 'drizzle-orm';
+import { otpStore, generateOtp, sendOtp } from '../utils/otp.js';
+import jwt from 'jsonwebtoken';
+import { v4 as uuidv4 } from 'uuid';
+import { authenticate } from '../middleware/auth.js';
+const router = Router();
+const JWT_SECRET = process.env.JWT_SECRET || 'aslee-dev-secret-change-in-production';
+router.post('/send-otp', (req, res) => {
+    const { phone } = req.body;
+    if (!phone || !/^\d{10}$/.test(phone)) {
+        return res.status(400).json({ error: 'Valid 10-digit phone number is required' });
+    }
+    const otp = generateOtp();
+    otpStore.set(phone, { otp, expiresAt: Date.now() + 5 * 60 * 1000 });
+    sendOtp(phone, otp);
+    // DEV MODE: Return OTP in response so the UI can show it.
+    // PRODUCTION: Remove the `otp` field and integrate a real SMS gateway (MSG91, Twilio, etc.)
+    res.json({ message: 'OTP sent successfully', otp });
+});
+router.post('/verify-otp', async (req, res) => {
+    const { phone, otp } = req.body;
+    const stored = otpStore.get(phone);
+    if (!stored || stored.otp !== otp || Date.now() > stored.expiresAt) {
+        return res.status(400).json({ error: 'Invalid or expired OTP' });
+    }
+    otpStore.delete(phone);
+    let users = await db.select().from(schema.users).where(eq(schema.users.phone, phone));
+    let user = users[0];
+    if (!user) {
+        const newUser = {
+            id: uuidv4(),
+            phone,
+            created_at: Date.now()
+        };
+        await db.insert(schema.users).values(newUser);
+        user = (await db.select().from(schema.users).where(eq(schema.users.phone, phone)))[0];
+    }
+    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '7d' });
+    res.json({ token, user });
+});
+router.put('/profile', authenticate, async (req, res) => {
+    const { name, age_bracket, chronic_conditions, preferred_language } = req.body;
+    await db.update(schema.users)
+        .set({
+        name,
+        age_bracket,
+        chronic_conditions: chronic_conditions ? JSON.stringify(chronic_conditions) : null,
+        preferred_language
+    })
+        .where(eq(schema.users.id, req.user.id));
+    const updatedUser = (await db.select().from(schema.users).where(eq(schema.users.id, req.user.id)))[0];
+    res.json(updatedUser);
+});
+router.post('/consent', authenticate, async (req, res) => {
+    await db.update(schema.users)
+        .set({ consent_given_at: Date.now() })
+        .where(eq(schema.users.id, req.user.id));
+    res.json({ message: 'Consent recorded successfully' });
+});
+router.get('/me', authenticate, (req, res) => {
+    res.json(req.user);
+});
+export default router;

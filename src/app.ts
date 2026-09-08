@@ -37,6 +37,11 @@ app.use('/api/community', communityRoutes);
 app.use('/api/experiences', expRoutes);
 app.use('/api/chat', chatRoutes);
 
+app.get('/', (_req, res) => res.json({
+  name: 'MedSathi Backend',
+  status: 'ok',
+  health: '/health'
+}));
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
 export default app;
