@@ -14,15 +14,28 @@ router.post('/send-otp', (req, res) => {
         return res.status(400).json({ error: 'Valid 10-digit phone number is required' });
     }
     const otp = generateOtp();
-    otpStore.set(phone, { otp, expiresAt: Date.now() + 5 * 60 * 1000 });
+    const expiresAt = Date.now() + 5 * 60 * 1000;
+    otpStore.set(phone, { otp, expiresAt });
     sendOtp(phone, otp);
+    const challenge = jwt.sign({ phone, otp, purpose: 'otp' }, JWT_SECRET, { expiresIn: '5m' });
     // DEV MODE: Return OTP in response so the UI can show it.
     // PRODUCTION: Remove the `otp` field and integrate a real SMS gateway (MSG91, Twilio, etc.)
-    res.json({ message: 'OTP sent successfully', otp });
+    res.json({ message: 'OTP sent successfully', otp, challenge });
 });
 router.post('/verify-otp', async (req, res) => {
-    const { phone, otp } = req.body;
-    const stored = otpStore.get(phone);
+    const { phone, otp, challenge } = req.body;
+    let stored = otpStore.get(phone);
+    if (challenge) {
+        try {
+            const payload = jwt.verify(challenge, JWT_SECRET);
+            if (payload.purpose === 'otp' && payload.phone === phone && typeof payload.otp === 'string') {
+                stored = { otp: payload.otp, expiresAt: (payload.exp || 0) * 1000 };
+            }
+        }
+        catch {
+            stored = undefined;
+        }
+    }
     if (!stored || stored.otp !== otp || Date.now() > stored.expiresAt) {
         return res.status(400).json({ error: 'Invalid or expired OTP' });
     }

@@ -114,24 +114,91 @@ const MEDICINE_KNOWLEDGE: Record<string, { uses: string; sideEffects: string; ho
     sideEffects: 'Headache, stomach pain, fatigue. Rare: mood changes, depression, suicidal thoughts (FDA warning), sleep problems.',
     howItWorks: 'Blocks leukotriene receptors, reducing inflammation, bronchoconstriction, and mucus production in airways.',
     warnings: 'Not for acute asthma attacks. FDA neuropsychiatric warning — monitor for mood changes. Take in the evening for asthma.',
-    storage: 'Store at 25°C. Protect from moisture and light.'
+    storage: 'Store at 25 deg C. Protect from moisture and light.'
+  },
+  'diclofenac': {
+    uses: 'Diclofenac (Voveran, Volini) is an NSAID used for pain relief in arthritis, back pain, sprains, strains, gout, and post-surgical pain. Available as tablets, gel, and injections.',
+    sideEffects: 'Stomach pain, nausea, diarrhea. Risk of stomach ulcers and bleeding. May raise blood pressure and affect kidneys and heart with long-term use.',
+    howItWorks: 'Inhibits COX-2 enzyme more selectively than COX-1, reducing prostaglandins that cause pain and inflammation.',
+    warnings: 'Avoid in heart disease patients. Take with food. Not safe during pregnancy. Do not combine with other NSAIDs. Topical gel has fewer systemic side effects.',
+    storage: 'Store below 30 deg C. Protect from moisture.'
+  },
+  'metronidazole': {
+    uses: 'Metronidazole (Metrogyl, Flagyl) is an antibiotic used for bacterial and parasitic infections including dental infections, stomach infections, amoebic dysentery, and bacterial vaginosis.',
+    sideEffects: 'Nausea, metallic taste, headache, dark urine. Rare: numbness in hands/feet with prolonged use.',
+    howItWorks: 'Enters bacterial/protozoal cells and damages their DNA, killing the organisms. Effective against anaerobic bacteria and certain parasites.',
+    warnings: 'NEVER consume alcohol while taking metronidazole (severe reaction). Complete the full course. May cause dizziness.',
+    storage: 'Store below 25 deg C. Protect from light.'
+  },
+  'losartan': {
+    uses: 'Losartan (Covance, Losacar) is an ARB used for hypertension, diabetic kidney disease, and heart failure. Helps protect kidneys in diabetic patients.',
+    sideEffects: 'Dizziness, back pain, fatigue. Rare: hyperkalemia, angioedema.',
+    howItWorks: 'Blocks angiotensin II AT1 receptors, relaxing blood vessels and lowering blood pressure.',
+    warnings: 'Do not use in pregnancy. Monitor potassium levels. May cause first-dose dizziness.',
+    storage: 'Store at 25 deg C. Protect from light.'
+  },
+  'rosuvastatin': {
+    uses: 'Rosuvastatin (Rozavel, Crestor) is a statin used to lower cholesterol. More potent than atorvastatin at equivalent doses. Reduces cardiovascular risk.',
+    sideEffects: 'Muscle pain, headache, nausea. Rare: rhabdomyolysis, liver dysfunction.',
+    howItWorks: 'Inhibits HMG-CoA reductase enzyme in the liver, reducing LDL cholesterol production and increasing HDL.',
+    warnings: 'Avoid grapefruit. Regular liver tests recommended. Report muscle pain immediately. Not safe in pregnancy.',
+    storage: 'Store at 25 deg C. Protect from moisture.'
+  },
+  'salbutamol': {
+    uses: 'Salbutamol (Asthalin) is a bronchodilator inhaler for quick relief of asthma symptoms, wheezing, and breathing difficulty. Also used before exercise to prevent exercise-induced asthma.',
+    sideEffects: 'Tremor, headache, rapid heartbeat, nervousness. Usually mild and temporary.',
+    howItWorks: 'Relaxes smooth muscles in the airways by stimulating beta-2 receptors, opening up the bronchial tubes within minutes.',
+    warnings: 'For quick relief only — not a controller medication. If using more than 2-3 times per week, asthma may be uncontrolled. Rinse mouth after use.',
+    storage: 'Store below 30 deg C. Do not puncture or burn the inhaler.'
+  },
+  'levocetirizine': {
+    uses: 'Levocetirizine (Levocet, Xyzal) is a newer antihistamine for allergic rhinitis, urticaria, and itchy skin. Causes less drowsiness than older antihistamines.',
+    sideEffects: 'Mild drowsiness, dry mouth, fatigue, headache.',
+    howItWorks: 'Active form of cetirizine. Blocks histamine H1 receptors more selectively, providing faster and longer-lasting allergy relief.',
+    warnings: 'May still cause some drowsiness. Avoid alcohol. Dose adjustment for kidney problems. Take in the evening.',
+    storage: 'Store below 30 deg C in a dry place.'
+  },
+  'escitalopram': {
+    uses: 'Escitalopram (Nexito, Cipralex) is an SSRI antidepressant used for depression, generalized anxiety disorder, panic disorder, and OCD.',
+    sideEffects: 'Nausea, headache, insomnia, sexual dysfunction, weight changes. Initial worsening of anxiety may occur.',
+    howItWorks: 'Selectively inhibits serotonin reuptake in the brain, increasing serotonin levels which improves mood and reduces anxiety.',
+    warnings: 'Takes 2-4 weeks for full effect. Do NOT stop suddenly — taper gradually. Monitor for suicidal thoughts in young adults. Avoid alcohol.',
+    storage: 'Store at 25 deg C. Protect from moisture.'
+  },
+  'rabeprazole': {
+    uses: 'Rabeprazole (Razo) is a PPI used for acid reflux, GERD, peptic ulcers, and H. pylori eradication. Faster onset than omeprazole.',
+    sideEffects: 'Headache, diarrhea, stomach pain. Long-term: B12 deficiency, bone fracture risk.',
+    howItWorks: 'Irreversibly blocks the proton pump in stomach cells. Has a faster onset and is converted to active form over a wider pH range than other PPIs.',
+    warnings: 'Short-term use preferred. Take before breakfast. Do not crush tablets.',
+    storage: 'Store below 25 deg C. Protect from moisture.'
+  },
+  'domperidone': {
+    uses: 'Domperidone (Domstal, Motilium) is used for nausea, vomiting, and bloating. Helps food move through the stomach faster. Also used for acid reflux symptoms.',
+    sideEffects: 'Dry mouth, headache. Rare: heart rhythm changes, breast enlargement/milk production.',
+    howItWorks: 'Blocks dopamine D2 receptors in the gut and brain chemoreceptor trigger zone, speeding up stomach emptying and reducing nausea.',
+    warnings: 'Use lowest effective dose for shortest duration. Rare cardiac risk at high doses. Not recommended with certain heart conditions.',
+    storage: 'Store below 30 deg C. Protect from light.'
   }
 };
 
 // General health topics for questions without medicine context
 const GENERAL_TOPICS: Record<string, string> = {
-  'fever': 'Fever is the body\'s natural response to infection. For adults, a temperature above 100.4°F (38°C) is considered fever. Common causes include viral infections, bacterial infections, and inflammatory conditions. Rest, hydration, and paracetamol can help manage mild fevers. Seek medical attention if fever exceeds 103°F, lasts more than 3 days, or is accompanied by severe symptoms.',
+  'fever': 'Fever is the body\'s natural response to infection. For adults, a temperature above 100.4F (38C) is considered fever. Common causes include viral infections, bacterial infections, and inflammatory conditions. Rest, hydration, and paracetamol can help manage mild fevers. Seek medical attention if fever exceeds 103F, lasts more than 3 days, or is accompanied by severe symptoms.',
   'headache': 'Headaches can be caused by tension, dehydration, eye strain, sinus issues, or migraines. For occasional headaches, paracetamol or ibuprofen may help. Stay hydrated, rest in a dark room, and apply cold compresses. Frequent or severe headaches should be evaluated by a doctor.',
   'cold': 'Common cold is caused by viruses (usually rhinoviruses). Symptoms include runny nose, sneezing, sore throat, and mild cough. Rest, warm fluids, steam inhalation, and symptomatic relief with antihistamines or decongestants help. Antibiotics are NOT effective against colds. See a doctor if symptoms worsen after 7-10 days.',
-  'diabetes': 'Type 2 diabetes is managed with lifestyle changes (diet, exercise) and medications like Metformin. Regular blood sugar monitoring (fasting, post-meal, HbA1c) is essential. Target HbA1c is usually below 7%. Jan Aushadhi stores offer affordable diabetes medicines like Metformin at Rs. 10-30 per strip.',
-  'blood pressure': 'Normal blood pressure is below 120/80 mmHg. Hypertension (high BP) is a silent condition that increases risk of heart disease and stroke. It is managed with medicines like Telmisartan, Amlodipine, and lifestyle changes. Regular monitoring, low-salt diet, exercise, and medication adherence are key.',
-  'acidity': 'Acidity or acid reflux occurs when stomach acid flows back into the esophagus. Causes include spicy food, stress, irregular meals, and obesity. Antacids provide quick relief. PPIs like Pantoprazole or Omeprazole reduce acid production. Eating smaller meals and avoiding lying down after eating helps.',
-  'allergy': 'Allergies occur when the immune system overreacts to harmless substances (pollen, dust, food). Antihistamines like Cetirizine or Levocetirizine provide relief. For severe allergies (anaphylaxis), epinephrine is needed. Identify and avoid triggers. Nasal sprays help with allergic rhinitis.',
+  'cough': 'Cough can be dry or productive. Dry cough may be caused by allergies, viral infections, or certain medicines (like ACE inhibitors). Productive cough with mucus may indicate respiratory infection. Honey and warm water help soothe. See a doctor if cough persists beyond 2 weeks, produces blood, or is accompanied by difficulty breathing.',
+  'diabetes': 'Type 2 diabetes is managed with lifestyle changes (diet, exercise) and medications like Metformin. Regular blood sugar monitoring (fasting, post-meal, HbA1c) is essential. Target HbA1c is usually below 7%. Jan Aushadhi stores offer affordable diabetes medicines like Metformin at Rs. 1.50 per tablet vs Rs. 40+ for branded.',
+  'blood pressure': 'Normal blood pressure is below 120/80 mmHg. Hypertension (high BP) is a silent condition that increases risk of heart disease and stroke. It is managed with medicines like Telmisartan, Amlodipine, and lifestyle changes. Regular monitoring, low-salt diet, exercise, and medication adherence are key. Jan Aushadhi Amlodipine costs just Rs. 1 per tablet.',
+  'acidity': 'Acidity or acid reflux occurs when stomach acid flows back into the esophagus. Causes include spicy food, stress, irregular meals, and obesity. Antacids provide quick relief. PPIs like Pantoprazole or Omeprazole reduce acid production. Eating smaller meals and avoiding lying down after eating helps. Jan Aushadhi Pantoprazole costs just Rs. 3 per tablet.',
+  'allergy': 'Allergies occur when the immune system overreacts to harmless substances (pollen, dust, food). Antihistamines like Cetirizine or Levocetirizine provide relief. For severe allergies (anaphylaxis), epinephrine is needed. Identify and avoid triggers. Nasal sprays help with allergic rhinitis. Jan Aushadhi Cetirizine: Rs. 0.85 per tablet.',
+  'asthma': 'Asthma is a chronic lung condition causing wheezing, breathlessness, and cough. Management involves controller inhalers (Budesonide) daily and reliever inhalers (Salbutamol) for attacks. Avoid triggers like dust, smoke, and allergens. Jan Aushadhi Salbutamol inhaler: Rs. 35 vs branded Rs. 150.',
   'antibiotic': 'Antibiotics treat bacterial infections, NOT viral ones (colds, flu). Always complete the full prescribed course. Do not share antibiotics. Overuse leads to antibiotic resistance — a growing problem in India. Common antibiotics include Amoxicillin, Azithromycin, and Ciprofloxacin.',
-  'generic': 'Generic medicines contain the same active ingredient, strength, and dosage form as branded medicines but cost 30-80% less. They are equally safe and effective — approved by CDSCO (India\'s FDA equivalent). Jan Aushadhi Kendras sell quality generics at affordable prices under the government\'s PMBJP scheme.',
-  'jan aushadhi': 'Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) offers quality generic medicines at affordable prices. Over 9,000+ Jan Aushadhi Kendras operate across India. Medicines are 50-90% cheaper than branded equivalents. You can find your nearest store on the PMBJP app or website.',
+  'generic': 'Generic medicines contain the same active ingredient, strength, and dosage form as branded medicines but cost 30-90% less. They are equally safe and effective — approved by CDSCO. Jan Aushadhi Kendras sell quality generics at affordable prices under the PMBJP scheme. Over 10,000 stores across India.',
+  'jan aushadhi': 'Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) offers quality generic medicines at 50-90% savings. Over 10,000 Jan Aushadhi Kendras across India. Examples: Paracetamol 650mg at Rs. 2.50 (vs Dolo Rs. 31), Azithromycin 500mg at Rs. 12.50 (vs Azithral Rs. 120). Find your nearest store on the PMBJP app or janaushadhi.gov.in.',
   'expiry': 'Medicine expiry dates indicate the last date the manufacturer guarantees full potency and safety. Never take expired medicines — they may be less effective or potentially harmful. Most medicines are stable for 2-3 years from manufacture. Store properly (cool, dry, away from sunlight) to maintain effectiveness.',
-  'side effect': 'Side effects are unintended reactions to medicines. Common ones are usually mild (nausea, headache, drowsiness). Report serious side effects to your doctor immediately. You can also report adverse drug reactions to CDSCO through the PvPI (Pharmacovigilance Programme of India) at 1800-180-3024.'
+  'side effect': 'Side effects are unintended reactions to medicines. Common ones are usually mild (nausea, headache, drowsiness). Report serious side effects to your doctor immediately. You can also report adverse drug reactions to CDSCO through the PvPI (Pharmacovigilance Programme of India) at 1800-180-3024.',
+  'interaction': 'Drug interactions happen when medicines affect each other. Some common ones: Warfarin + Aspirin = bleeding risk. Metformin + Alcohol = lactic acidosis risk. Ciprofloxacin + Dairy = reduced absorption. Always tell your doctor about ALL medicines you take, including over-the-counter and herbal products.',
+  'pregnancy': 'Many medicines are unsafe during pregnancy. Always consult your doctor before taking any medicine while pregnant or breastfeeding. Categories: Category A (safe), B (probably safe), C (use if benefit outweighs risk), D (evidence of harm), X (contraindicated). Common safe medicines: Paracetamol (Category B), Folic acid.'
 };
 
 export class MockAIChatProvider implements AIChatProvider {
@@ -308,19 +375,28 @@ export class MockAIChatProvider implements AIChatProvider {
     }
     // Check common brand names
     const brandToGeneric: Record<string, string> = {
-      'dolo': 'paracetamol', 'crocin': 'paracetamol', 'calpol': 'paracetamol',
-      'augmentin': 'amoxicillin', 'mox': 'amoxicillin',
+      'dolo': 'paracetamol', 'crocin': 'paracetamol', 'calpol': 'paracetamol', 'sinarest': 'paracetamol',
+      'augmentin': 'amoxicillin', 'mox': 'amoxicillin', 'amoxyclav': 'amoxicillin',
       'azithral': 'azithromycin', 'zithromax': 'azithromycin',
       'pan-d': 'pantoprazole', 'pantocid': 'pantoprazole', 'pantop': 'pantoprazole',
       'atorva': 'atorvastatin', 'lipitor': 'atorvastatin',
       'telma': 'telmisartan', 'telmikind': 'telmisartan',
-      'glycomet': 'metformin', 'glucophage': 'metformin',
+      'glycomet': 'metformin', 'glucophage': 'metformin', 'gluformin': 'metformin',
       'cetzine': 'cetirizine', 'zyrtec': 'cetirizine', 'okacet': 'cetirizine',
       'omez': 'omeprazole',
       'brufen': 'ibuprofen', 'combiflam': 'ibuprofen',
       'ciplox': 'ciprofloxacin',
-      'amlopress': 'amlodipine', 'stamlo': 'amlodipine',
-      'montair': 'montelukast', 'singulair': 'montelukast'
+      'amlopress': 'amlodipine', 'stamlo': 'amlodipine', 'amlong': 'amlodipine',
+      'montair': 'montelukast', 'singulair': 'montelukast',
+      'voveran': 'diclofenac', 'volini': 'diclofenac', 'diclofenac gel': 'diclofenac',
+      'metrogyl': 'metronidazole', 'flagyl': 'metronidazole',
+      'covance': 'losartan', 'losacar': 'losartan',
+      'rozavel': 'rosuvastatin', 'crestor': 'rosuvastatin',
+      'asthalin': 'salbutamol',
+      'levocet': 'levocetirizine', 'xyzal': 'levocetirizine',
+      'nexito': 'escitalopram', 'cipralex': 'escitalopram',
+      'razo': 'rabeprazole',
+      'domstal': 'domperidone', 'motilium': 'domperidone'
     };
     for (const [brand, generic] of Object.entries(brandToGeneric)) {
       if (message.includes(brand)) {
@@ -373,31 +449,98 @@ export class GeminiChatProvider implements AIChatProvider {
         model: 'gemini-3.5-flash'
       });
 
-      let promptPrefix = '';
-      if (medicineContext) {
-        promptPrefix = 'Context: We are discussing ' + medicineContext.brand_name + ' (Generic: ' + medicineContext.generic_name + '). ' +
-          'Manufacturer: ' + medicineContext.manufacturer + '. ' +
-          'Dosage form: ' + medicineContext.dosage_form + ', Strength: ' + medicineContext.strength + '. ' +
-          'Category: ' + medicineContext.category + '. ' +
-          'MRP: Rs. ' + medicineContext.mrp +
-          (medicineContext.nppa_ceiling_price ? ' (NPPA ceiling: Rs. ' + medicineContext.nppa_ceiling_price + ')' : '') + '.\n\n';
-      }
+      const systemPrompt = this.buildSystemPrompt(medicineContext);
 
-      const history = messages.slice(0, -1).map(function(msg) {
-        return {
-          role: msg.role === 'assistant' ? 'model' : 'user',
+      // Build history with system context as first exchange
+      const history = [
+        { role: 'user' as const, parts: [{ text: 'System context: ' + systemPrompt }] },
+        { role: 'model' as const, parts: [{ text: 'Understood. I am Aslee AI, ready to help with medicine information following all the rules you specified.' }] }
+      ];
+
+      // Add conversation history
+      for (const msg of messages.slice(0, -1)) {
+        history.push({
+          role: (msg.role === 'assistant' ? 'model' : 'user') as 'user' | 'model',
           parts: [{ text: msg.content }]
-        };
-      });
+        });
+      }
 
       const lastMessage = messages[messages.length - 1];
       const chat = model.startChat({ history: history });
 
-      const result = await chat.sendMessage(promptPrefix + lastMessage.content);
+      const result = await chat.sendMessage(lastMessage.content);
       return result.response.text();
     } catch (error) {
       console.error('Gemini API error:', error);
       return this.mockProvider.chat(messages, medicineContext);
     }
   }
+
+  private buildSystemPrompt(medicineContext: Medicine | null): string {
+    let prompt = 'You are Aslee AI, a knowledgeable Indian pharmacy and medicine assistant built for the MedSathi app. ' +
+      'You help Indian consumers understand their medicines, find affordable alternatives, and stay safe.\n\n' +
+
+      '## YOUR CORE RULES:\n' +
+      '1. NEVER prescribe, diagnose, or recommend dosage. Always say "consult your doctor" for these.\n' +
+      '2. Always end responses with: "\\n\\n' + String.fromCodePoint(0x26A0, 0xFE0F) + ' This is not medical advice. Please consult a doctor for personalized guidance."\n' +
+      '3. If the user writes in Hindi/Hinglish, respond in the SAME language (Hindi/Hinglish).\n' +
+      '4. Keep responses concise but informative. Use emojis and formatting for readability.\n' +
+      '5. When mentioning prices, use Indian Rupees (Rs. or ' + String.fromCodePoint(0x20B9) + ').\n' +
+      '6. Proactively mention Jan Aushadhi (PMBJP) generic alternatives when discussing branded medicines.\n\n' +
+
+      '## YOUR KNOWLEDGE AREAS:\n' +
+      '- Indian medicine brands and their generic equivalents\n' +
+      '- Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) scheme\n' +
+      '- NPPA ceiling prices and overpricing detection\n' +
+      '- Drug categories: Antipyretics, Antibiotics, Antidiabetics, Antihypertensives, Cardiovascular, Antihistamines, Antacids, etc.\n' +
+      '- Common drug interactions and contraindications\n' +
+      '- Side effects and safety warnings\n' +
+      '- Storage instructions\n' +
+      '- Medicine verification (batch numbers, expiry, genuineness)\n' +
+      '- CDSCO (India FDA equivalent) regulations\n' +
+      '- PvPI (Pharmacovigilance Programme of India) helpline: 1800-180-3024\n\n' +
+
+      '## JAN AUSHADHI KNOWLEDGE:\n' +
+      'Jan Aushadhi Kendras are government-run generic medicine stores under PMBJP scheme.\n' +
+      '- 10,000+ stores across India\n' +
+      '- Medicines are 50-90% cheaper than branded equivalents\n' +
+      '- Same active ingredients, same quality (WHO-GMP certified)\n' +
+      '- Find nearest store: PMBJP app or janaushadhi.gov.in\n' +
+      '- Key examples:\n' +
+      '  * Dolo 650 (Rs.30) -> Jan Aushadhi Paracetamol 650 (Rs.2.50) = 92% savings\n' +
+      '  * Azithral 500 (Rs.120) -> Jan Aushadhi Azithromycin (Rs.12.50) = 90% savings\n' +
+      '  * Atorva 10 (Rs.70) -> Jan Aushadhi Atorvastatin (Rs.3) = 96% savings\n' +
+      '  * Thyronorm (Rs.150) -> Jan Aushadhi Levothyroxine (Rs.2) = 99% savings\n' +
+      '  * Pantocid (Rs.130) -> Jan Aushadhi Pantoprazole (Rs.3) = 98% savings\n' +
+      '  * Telma 40 (Rs.200) -> Jan Aushadhi Telmisartan (Rs.3.50) = 98% savings\n\n' +
+
+      '## RESPONSE FORMAT:\n' +
+      '- Use bold (**text**) for medicine names, headings\n' +
+      '- Use bullet points for lists\n' +
+      '- Use emojis: ' + String.fromCodePoint(0x1F48A) + ' for medicines, ' + String.fromCodePoint(0x26A1) + ' for side effects, ' +
+        String.fromCodePoint(0x26A0, 0xFE0F) + ' for warnings, ' + String.fromCodePoint(0x1F4B0) + ' for prices, ' +
+        String.fromCodePoint(0x1F52C) + ' for mechanism, ' + String.fromCodePoint(0x1F4E6) + ' for storage\n' +
+      '- Keep responses under 300 words unless user asks for detail\n' +
+      '- For drug interactions: always recommend consulting a doctor\n';
+
+    if (medicineContext) {
+      prompt += '\n## CURRENT MEDICINE CONTEXT:\n' +
+        'The user is asking about this specific medicine:\n' +
+        '- Brand Name: ' + medicineContext.brand_name + '\n' +
+        '- Generic Name (Salt): ' + medicineContext.generic_name + '\n' +
+        '- Manufacturer: ' + medicineContext.manufacturer + '\n' +
+        '- Dosage Form: ' + medicineContext.dosage_form + '\n' +
+        '- Strength: ' + medicineContext.strength + '\n' +
+        '- Category: ' + medicineContext.category + '\n' +
+        '- MRP: Rs. ' + medicineContext.mrp.toFixed(2) + '\n' +
+        (medicineContext.nppa_ceiling_price
+          ? '- NPPA Ceiling Price: Rs. ' + medicineContext.nppa_ceiling_price.toFixed(2) + '\n'
+          : '') +
+        '\nUse this context to give specific, accurate answers about THIS medicine. ' +
+        'Always mention its generic name and suggest the Jan Aushadhi equivalent if available.\n';
+    }
+
+    return prompt;
+  }
 }
+

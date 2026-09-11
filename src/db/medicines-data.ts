@@ -136,6 +136,36 @@ const janAushadhiMedicines = [
   { id: 528, brand_name: 'Jan Aushadhi Vitamin C', generic_name: 'Vitamin C', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '500mg', mrp: 0.60, nppa_ceiling_price: null, category: 'Vitamin' },
   { id: 529, brand_name: 'Jan Aushadhi Rabeprazole', generic_name: 'Rabeprazole', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '20mg', mrp: 3.80, nppa_ceiling_price: null, category: 'Antacid' },
   { id: 530, brand_name: 'Jan Aushadhi Ondansetron', generic_name: 'Ondansetron', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '4mg', mrp: 2.00, nppa_ceiling_price: null, category: 'Antiemetic' },
+  { id: 531, brand_name: 'Jan Aushadhi Norfloxacin', generic_name: 'Norfloxacin', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '400mg', mrp: 2.50, nppa_ceiling_price: null, category: 'Antibiotic' },
+  { id: 532, brand_name: 'Jan Aushadhi Doxycycline', generic_name: 'Doxycycline', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '100mg', mrp: 1.80, nppa_ceiling_price: null, category: 'Antibiotic' },
+  { id: 533, brand_name: 'Jan Aushadhi Levofloxacin', generic_name: 'Levofloxacin', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '500mg', mrp: 5.00, nppa_ceiling_price: null, category: 'Antibiotic' },
+  { id: 534, brand_name: 'Jan Aushadhi Amoxicillin + Clavulanic Acid', generic_name: 'Amoxicillin + Clavulanic Acid', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '625mg', mrp: 8.50, nppa_ceiling_price: null, category: 'Antibiotic' },
+  { id: 535, brand_name: 'Jan Aushadhi Mefenamic Acid', generic_name: 'Mefenamic Acid', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '250mg', mrp: 1.50, nppa_ceiling_price: null, category: 'Analgesic' },
+  { id: 536, brand_name: 'Jan Aushadhi Domperidone', generic_name: 'Domperidone', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '10mg', mrp: 0.80, nppa_ceiling_price: null, category: 'Antiemetic' },
+  { id: 537, brand_name: 'Jan Aushadhi Salbutamol', generic_name: 'Salbutamol', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Inhaler', strength: '100mcg', mrp: 35.00, nppa_ceiling_price: null, category: 'Respiratory' },
+  { id: 538, brand_name: 'Jan Aushadhi Budesonide', generic_name: 'Budesonide', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Inhaler', strength: '200mcg', mrp: 55.00, nppa_ceiling_price: null, category: 'Respiratory' },
+  { id: 539, brand_name: 'Jan Aushadhi Montelukast', generic_name: 'Montelukast', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '10mg', mrp: 3.50, nppa_ceiling_price: null, category: 'Antihistamine' },
+  { id: 540, brand_name: 'Jan Aushadhi Levocetirizine', generic_name: 'Levocetirizine', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '5mg', mrp: 0.65, nppa_ceiling_price: null, category: 'Antihistamine' },
+  { id: 541, brand_name: 'Jan Aushadhi Fexofenadine', generic_name: 'Fexofenadine', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '120mg', mrp: 3.00, nppa_ceiling_price: null, category: 'Antihistamine' },
+  { id: 542, brand_name: 'Jan Aushadhi Escitalopram', generic_name: 'Escitalopram', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '10mg', mrp: 2.50, nppa_ceiling_price: null, category: 'Antidepressant' },
+  { id: 543, brand_name: 'Jan Aushadhi Fluoxetine', generic_name: 'Fluoxetine', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Capsule', strength: '20mg', mrp: 1.50, nppa_ceiling_price: null, category: 'Antidepressant' },
+  { id: 544, brand_name: 'Jan Aushadhi Sertraline', generic_name: 'Sertraline', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '50mg', mrp: 2.00, nppa_ceiling_price: null, category: 'Antidepressant' },
+  { id: 545, brand_name: 'Jan Aushadhi Clotrimazole', generic_name: 'Clotrimazole', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Cream', strength: '1%', mrp: 8.00, nppa_ceiling_price: null, category: 'Dermatological' },
+  { id: 546, brand_name: 'Jan Aushadhi Povidone Iodine', generic_name: 'Povidone Iodine', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Ointment', strength: '5%', mrp: 15.00, nppa_ceiling_price: null, category: 'Dermatological' },
+  { id: 547, brand_name: 'Jan Aushadhi Bisoprolol', generic_name: 'Bisoprolol', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '5mg', mrp: 2.50, nppa_ceiling_price: null, category: 'Antihypertensive' },
+  { id: 548, brand_name: 'Jan Aushadhi Vitamin B Complex', generic_name: 'Vitamin B Complex', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Capsule', strength: 'Capsule', mrp: 1.50, nppa_ceiling_price: null, category: 'Vitamin' },
+  { id: 549, brand_name: 'Jan Aushadhi Multivitamin', generic_name: 'Multivitamin', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: 'Tablet', mrp: 2.00, nppa_ceiling_price: null, category: 'Vitamin' },
+  { id: 550, brand_name: 'Jan Aushadhi Iron + Folic Acid', generic_name: 'Iron + Folic Acid', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: 'Tablet', mrp: 0.50, nppa_ceiling_price: null, category: 'Vitamin' },
+  { id: 551, brand_name: 'Jan Aushadhi Albendazole', generic_name: 'Albendazole', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '400mg', mrp: 2.00, nppa_ceiling_price: null, category: 'Anthelmintic' },
+  { id: 552, brand_name: 'Jan Aushadhi ORS', generic_name: 'Oral Rehydration Salts', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Sachet', strength: 'Sachet', mrp: 4.50, nppa_ceiling_price: null, category: 'Electrolyte' },
+  { id: 553, brand_name: 'Jan Aushadhi Paracetamol Syrup', generic_name: 'Paracetamol', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Syrup', strength: '120mg/5ml', mrp: 12.00, nppa_ceiling_price: null, category: 'Antipyretic' },
+  { id: 554, brand_name: 'Jan Aushadhi Chlorzoxazone', generic_name: 'Chlorzoxazone', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '250mg', mrp: 1.80, nppa_ceiling_price: null, category: 'Muscle Relaxant' },
+  { id: 555, brand_name: 'Jan Aushadhi Aceclofenac', generic_name: 'Aceclofenac', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '100mg', mrp: 1.50, nppa_ceiling_price: null, category: 'Analgesic' },
+  { id: 556, brand_name: 'Jan Aushadhi Gabapentin', generic_name: 'Gabapentin', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '300mg', mrp: 4.50, nppa_ceiling_price: null, category: 'Neuropathic Pain' },
+  { id: 557, brand_name: 'Jan Aushadhi Pregabalin', generic_name: 'Pregabalin', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '75mg', mrp: 3.50, nppa_ceiling_price: null, category: 'Neuropathic Pain' },
+  { id: 558, brand_name: 'Jan Aushadhi Dolo + Caffeine', generic_name: 'Paracetamol + Caffeine', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '650mg+50mg', mrp: 1.20, nppa_ceiling_price: null, category: 'Analgesic' },
+  { id: 559, brand_name: 'Jan Aushadhi Hydroxychloroquine', generic_name: 'Hydroxychloroquine', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '200mg', mrp: 4.00, nppa_ceiling_price: null, category: 'Antimalarial' },
+  { id: 560, brand_name: 'Jan Aushadhi Methotrexate', generic_name: 'Methotrexate', manufacturer: 'PMBJP (Jan Aushadhi)', dosage_form: 'Tablet', strength: '7.5mg', mrp: 8.50, nppa_ceiling_price: null, category: 'Immunosuppressant' },
 ];
 
 export const medicinesList: any[] = [];
@@ -219,6 +249,26 @@ export const alternativesList = [
   { medicine_id: 72, alternative_medicine_id: 528, price_difference_pct: 98 }, // Limcee -> JA Vitamin C
   // Antiemetic -> JA equivalent
   { medicine_id: 82, alternative_medicine_id: 530, price_difference_pct: 96 }, // Emeset -> JA Ondansetron
+  // Newly added JA alternatives
+  { medicine_id: 16, alternative_medicine_id: 531, price_difference_pct: 95 }, // Norflox 400 -> JA Norfloxacin
+  { medicine_id: 9, alternative_medicine_id: 534, price_difference_pct: 96 },  // Augmentin 625 -> JA Amoxicillin + Clavulanic Acid
+  { medicine_id: 11, alternative_medicine_id: 534, price_difference_pct: 95 }, // Amoxyclav -> JA Amoxicillin + Clavulanic Acid
+  { medicine_id: 6, alternative_medicine_id: 535, price_difference_pct: 97 },  // Meftal Spas -> JA Mefenamic Acid
+  { medicine_id: 83, alternative_medicine_id: 536, price_difference_pct: 98 }, // Domstal -> JA Domperidone
+  { medicine_id: 57, alternative_medicine_id: 537, price_difference_pct: 77 }, // Asthalin -> JA Salbutamol
+  { medicine_id: 58, alternative_medicine_id: 538, price_difference_pct: 80 }, // Budecort -> JA Budesonide
+  { medicine_id: 49, alternative_medicine_id: 539, price_difference_pct: 98 }, // Montair LC -> JA Montelukast
+  { medicine_id: 52, alternative_medicine_id: 540, price_difference_pct: 99 }, // Levocet -> JA Levocetirizine
+  { medicine_id: 51, alternative_medicine_id: 541, price_difference_pct: 98 }, // Allegra -> JA Fexofenadine
+  { medicine_id: 76, alternative_medicine_id: 542, price_difference_pct: 98 }, // Nexito -> JA Escitalopram
+  { medicine_id: 77, alternative_medicine_id: 543, price_difference_pct: 98 }, // Fludac -> JA Fluoxetine
+  { medicine_id: 78, alternative_medicine_id: 544, price_difference_pct: 99 }, // Daxid -> JA Sertraline
+  { medicine_id: 64, alternative_medicine_id: 545, price_difference_pct: 94 }, // Candid-B -> JA Clotrimazole
+  { medicine_id: 62, alternative_medicine_id: 546, price_difference_pct: 88 }, // Betadine -> JA Povidone Iodine
+  { medicine_id: 36, alternative_medicine_id: 547, price_difference_pct: 98 }, // Concor -> JA Bisoprolol
+  { medicine_id: 68, alternative_medicine_id: 548, price_difference_pct: 97 }, // Becosules -> JA Vitamin B Complex
+  { medicine_id: 69, alternative_medicine_id: 549, price_difference_pct: 96 }, // Supradyn -> JA Multivitamin
+  { medicine_id: 85, alternative_medicine_id: 554, price_difference_pct: 97 }, // Flexon MR -> JA Chlorzoxazone
 ];
 
 export const batchesList: any[] = [];

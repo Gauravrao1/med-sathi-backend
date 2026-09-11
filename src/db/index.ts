@@ -11,6 +11,8 @@ sqlite.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
     phone TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE,
+    password_hash TEXT,
     name TEXT,
     age_bracket TEXT,
     preferred_language TEXT DEFAULT 'en',
@@ -138,7 +140,17 @@ try {
   // column might already exist
 }
 try {
-  sqlite.exec(`ALTER TABLE community_posts ADD COLUMN attachment_type TEXT;`);
+  sqlite.exec("ALTER TABLE community_posts ADD COLUMN attachment_type TEXT;");
+} catch (e) {
+  // column might already exist
+}
+try {
+  sqlite.exec("ALTER TABLE users ADD COLUMN email TEXT UNIQUE;");
+} catch (e) {
+  // column might already exist
+}
+try {
+  sqlite.exec("ALTER TABLE users ADD COLUMN password_hash TEXT;");
 } catch (e) {
   // column might already exist
 }
