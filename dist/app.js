@@ -14,7 +14,10 @@ const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
     .split(',')
     .map(origin => origin.trim())
     .filter(Boolean)
-    .concat('https://med-sathi-frontend.vercel.app');
+    .concat([
+    'https://med-sathi-frontend.vercel.app',
+    'https://med-sathi-frontend-qgybhd90-rags2.vercel.app',
+]);
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
