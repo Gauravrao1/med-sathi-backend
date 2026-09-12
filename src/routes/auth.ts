@@ -11,6 +11,14 @@ import crypto from 'crypto';
 const router = Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'aslee-dev-secret-change-in-production';
 
+// Strip sensitive fields before sending user data to client
+function sanitizeUser(user: any) {
+  if (!user) return user;
+  const clean = { ...user };
+  delete clean.password_hash;
+  return clean;
+}
+
 router.post('/send-otp', (req, res) => {
   const { phone } = req.body;
   if (!phone || !/^\d{10}$/.test(phone)) {
@@ -129,7 +137,7 @@ router.post('/register', async (req, res) => {
     await db.insert(schema.users).values(newUser);
     const user = (await db.select().from(schema.users).where(eq(schema.users.id, newUser.id)))[0];
     const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '7d' });
-    res.json({ token, user });
+    res.json({ token, user: sanitizeUser(user) });
   } catch (err: any) {
     res.status(500).json({ error: 'Registration failed. Please try again.' });
   }
@@ -150,7 +158,7 @@ router.post('/login', async (req, res) => {
   }
 
   const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '7d' });
-  res.json({ token, user });
+  res.json({ token, user: sanitizeUser(user) });
 });
 
 router.post('/forgot-password', async (req, res) => {
