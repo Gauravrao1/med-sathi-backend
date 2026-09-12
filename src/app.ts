@@ -12,24 +12,39 @@ import expRoutes from './routes/experiences.js';
 import chatRoutes from './routes/chat.js';
 
 const app = express();
-const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
-  .split(',')
-  .map(origin => origin.trim())
-  .filter(Boolean)
-  .concat([
-    'https://med-sathi-frontend.vercel.app',
-    'https://med-sathi-frontend-qgybhd90-rags2.vercel.app',
-  ]);
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://med-sathi-frontend.vercel.app',
+  'https://med-sathi-frontend-qgybhd90-rags2.vercel.app',
+  ...(process.env.CLIENT_ORIGIN || '')
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean),
+];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    console.log('CORS request origin:', origin);
+
+    if (!origin) {
       callback(null, true);
       return;
     }
 
-    callback(new Error('Origin not allowed by CORS'));
-  }
+    // Allow the MedSathi Vercel frontend and its deployment URLs
+    const isMedSathiVercel =
+      /^https:\/\/med-sathi-frontend(?:-[a-z0-9-]+)?\.vercel\.app$/.test(origin);
+
+    if (allowedOrigins.includes(origin) || isMedSathiVercel) {
+      callback(null, true);
+      return;
+    }
+
+    console.error('Blocked CORS origin:', origin);
+    callback(new Error(`Origin not allowed by CORS: ${origin}`));
+  },
+  credentials: true,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
