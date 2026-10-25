@@ -2,6 +2,10 @@ import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Sqlite from 'better-sqlite3';
 import * as schema from './schema.js';
 import { databasePath } from '../utils/runtimePaths.js';
+import { medicinesList, batchesList, alternativesList } from './medicines-data.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 export const sqlite: Sqlite.Database = new Sqlite(databasePath);
 export const db = drizzle(sqlite, { schema });
@@ -153,4 +157,35 @@ try {
   sqlite.exec("ALTER TABLE users ADD COLUMN password_hash TEXT;");
 } catch (e) {
   // column might already exist
+}
+
+// Auto-seed on cold start if DB is empty (essential for Vercel where /tmp is ephemeral)
+const medicineCount = sqlite.prepare('SELECT COUNT(*) as cnt FROM medicines').get() as any;
+if (!medicineCount || medicineCount.cnt === 0) {
+  console.log('Database empty — auto-seeding medicines, batches, and alternatives...');
+  try {
+
+    const insertMed = sqlite.prepare('INSERT OR IGNORE INTO medicines (id, brand_name, generic_name, manufacturer, dosage_form, strength, mrp, nppa_ceiling_price, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+    const insertBatch = sqlite.prepare('INSERT OR IGNORE INTO batches (id, medicine_id, batch_number, mfg_date, expiry_date, verification_status) VALUES (?, ?, ?, ?, ?, ?)');
+    const insertAlt = sqlite.prepare('INSERT OR IGNORE INTO generic_alternatives (medicine_id, alternative_medicine_id, price_difference_pct) VALUES (?, ?, ?)');
+    const insertUser = sqlite.prepare('INSERT OR IGNORE INTO users (id, phone, name, created_at) VALUES (?, ?, ?, ?)');
+
+    const seedAll = sqlite.transaction(() => {
+      for (const m of medicinesList) {
+        insertMed.run(m.id, m.brand_name, m.generic_name, m.manufacturer, m.dosage_form, m.strength, m.mrp, m.nppa_ceiling_price, m.category);
+      }
+      for (const b of batchesList) {
+        insertBatch.run(b.id, b.medicine_id, b.batch_number, b.mfg_date, b.expiry_date, b.verification_status);
+      }
+      for (const a of alternativesList) {
+        insertAlt.run(a.medicine_id, a.alternative_medicine_id, a.price_difference_pct);
+      }
+      // Demo user so scan works without registration
+      insertUser.run('demo-user-001', '9999999999', 'Demo User', Date.now());
+    });
+    seedAll();
+    console.log('Auto-seed complete: ' + medicinesList.length + ' medicines, ' + batchesList.length + ' batches, ' + alternativesList.length + ' alternatives.');
+  } catch (seedErr) {
+    console.error('Auto-seed failed:', seedErr);
+  }
 }

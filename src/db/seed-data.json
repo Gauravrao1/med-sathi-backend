@@ -2,7 +2,12 @@
   "users": [
     { "id": "seed-user-001", "phone": "9876543210", "name": "Demo User", "age_bracket": "26-35", "preferred_language": "en", "chronic_conditions": "[\"Diabetes\"]", "created_at": 1717200000, "consent_given_at": 1717200060 },
     { "id": "seed-user-002", "phone": "9876543211", "name": "Priya Sharma", "age_bracket": "36-45", "preferred_language": "hi", "chronic_conditions": "[\"Hypertension\"]", "created_at": 1717100000, "consent_given_at": 1717100060 },
-    { "id": "seed-user-003", "phone": "9876543212", "name": "Amit Patel", "age_bracket": "46-55", "preferred_language": "en", "chronic_conditions": "[\"Thyroid\"]", "created_at": 1717000000, "consent_given_at": 1717000060 }
+    { "id": "seed-user-003", "phone": "9876543212", "name": "Amit Patel", "age_bracket": "46-55", "preferred_language": "en", "chronic_conditions": "[\"Thyroid\"]", "created_at": 1717000000, "consent_given_at": 1717000060 },
+    { "id": "user-demo-001", "phone": "9876543220", "name": "Priya Sharma", "created_at": 1789100000000 },
+    { "id": "user-demo-002", "phone": "9876543221", "name": "Rahul Verma", "created_at": 1789100000000 },
+    { "id": "user-demo-003", "phone": "9876543222", "name": "Anita Devi", "created_at": 1789100000000 },
+    { "id": "user-demo-004", "phone": "9876543223", "name": "Dr. Suresh Kumar", "created_at": 1789100000000 },
+    { "id": "user-demo-005", "phone": "9876543224", "name": "Meena Patel", "created_at": 1789100000000 }
   ],
   "medicines": [
     { "id": 1, "brand_name": "Dolo 650", "generic_name": "Paracetamol", "manufacturer": "Micro Labs", "dosage_form": "Tablet", "strength": "650mg", "mrp": 30.00, "nppa_ceiling_price": 25.00, "category": "analgesic" },
@@ -107,7 +112,87 @@
     { "id": "cp-005", "user_id": "seed-user-002", "medicine_id": 13, "title": "Montair LC for seasonal allergies — how long to continue?", "body": "Was prescribed Montair LC for seasonal allergies. The allergy season is almost over. Should I stop taking it or complete a full course?", "tags": ["allergy", "seasonal", "montelukast"], "created_at": 1717600000 },
     { "id": "cp-006", "user_id": "seed-user-003", "medicine_id": null, "title": "Generic medicines from Jan Aushadhi stores — are they effective?", "body": "I've been hearing a lot about Jan Aushadhi stores offering medicines at 50-80% cheaper prices. Has anyone tried them? Are they as effective as branded ones?", "tags": ["generic", "jan-aushadhi", "affordable"], "created_at": 1717700000 },
     { "id": "cp-007", "user_id": "seed-user-001", "medicine_id": 24, "title": "Atorva 10 and muscle pain — common side effect?", "body": "I've been taking Atorva 10 for cholesterol for 6 months. Recently noticing muscle aches in my legs. Has anyone else experienced this with statins?", "tags": ["cholesterol", "statin", "side-effects"], "created_at": 1717800000 },
-    { "id": "cp-008", "user_id": "seed-user-002", "medicine_id": 25, "title": "Telma 40 — morning or night dose?", "body": "My cardiologist said I can take Telma 40 at any time of day. But I've read that taking BP medication at night may be better. Thoughts?", "tags": ["blood-pressure", "telmisartan", "timing"], "created_at": 1717900000 }
+    { "id": "cp-008", "user_id": "seed-user-002", "medicine_id": 25, "title": "Telma 40 — morning or night dose?", "body": "My cardiologist said I can take Telma 40 at any time of day. But I've read that taking BP medication at night may be better. Thoughts?", "tags": ["blood-pressure", "telmisartan", "timing"], "created_at": 1717900000 },
+    {
+      "id": "post-001",
+      "user_id": "user-demo-001",
+      "title": "Saved ₹450/month by switching to Jan Aushadhi medicines! 🎉",
+      "body": "I was spending ₹600/month on branded Atorvastatin (Atorva 10). My pharmacist told me about Jan Aushadhi Kendra near my house. The same Atorvastatin 10mg costs only ₹150 there! Same salt, same effect, just different brand. Been using it for 3 months now, no difference in my cholesterol levels. Doctor also confirmed it's perfectly fine. Highly recommend everyone to check Jan Aushadhi stores!",
+      "tags": ["jan-aushadhi", "savings", "cholesterol", "atorvastatin"],
+      "likes": 47,
+      "shares": 12,
+      "created_at": 1789100000000
+    },
+    {
+      "id": "post-002",
+      "user_id": "user-demo-004",
+      "title": "⚠️ How to check if your medicine is genuine - Doctor's guide",
+      "body": "As a doctor, I see patients worried about fake medicines. Here are simple checks:\n\n1. Check the batch number on the strip matches the box\n2. Look for the manufacturer's hologram (if applicable)\n3. Verify expiry date - never take expired medicines\n4. Check MRP - if price seems too low from a regular pharmacy, be cautious\n5. Use apps like MedSathi to scan and verify\n6. Buy from licensed pharmacies only\n7. Check the CDSCO website for any recalls\n\nRemember: Generic medicines are NOT fake. They contain the same active ingredient. Jan Aushadhi medicines are government-quality tested.",
+      "tags": ["doctor-advice", "genuine-medicine", "tips", "safety"],
+      "likes": 89,
+      "shares": 34,
+      "created_at": 1789090000000
+    },
+    {
+      "id": "post-003",
+      "user_id": "user-demo-002",
+      "title": "My experience with diabetes medicines - 5 years journey",
+      "body": "Been managing Type 2 diabetes for 5 years now. Started with Metformin 500mg (Glycomet), now on 1000mg. Some tips from my experience:\n\n- Always take Metformin after food, never empty stomach\n- Keep checking HbA1c every 3 months\n- Generic Metformin from Jan Aushadhi works just as well\n- I saved almost ₹200/month switching to generic\n- Morning walk for 30 minutes made a HUGE difference\n- Don't stop medicine without consulting doctor\n\nAny other diabetics here? Share your experience!",
+      "tags": ["diabetes", "metformin", "experience", "health-tips"],
+      "likes": 63,
+      "shares": 21,
+      "created_at": 1789080000000
+    },
+    {
+      "id": "post-004",
+      "user_id": "user-demo-003",
+      "title": "Found expired medicine at local pharmacy 😡",
+      "body": "Yesterday I bought Amoxicillin from a local pharmacy. When I came home and checked using MedSathi app, it showed the medicine expired 2 months ago! I immediately went back and the pharmacist replaced it. Always check expiry dates before buying.\n\nThis is why we need apps like this. The pharmacist was not even aware it was expired. Be careful everyone!",
+      "tags": ["expired-medicine", "safety", "awareness", "pharmacy"],
+      "likes": 112,
+      "shares": 45,
+      "created_at": 1789070000000
+    },
+    {
+      "id": "post-005",
+      "user_id": "user-demo-005",
+      "title": "Jan Aushadhi Kendra near me has almost everything now!",
+      "body": "The Jan Aushadhi store near Sector 15 market has expanded their stock. They now have:\n- All common antibiotics (Amoxicillin, Azithromycin, Ciprofloxacin)\n- Diabetes medicines (Metformin, Glimepiride)\n- BP medicines (Amlodipine, Telmisartan)\n- Pain killers (Paracetamol, Ibuprofen, Diclofenac)\n- Vitamins and supplements\n\nPrices are 50-90% cheaper than branded versions. The quality is the same because they follow the same pharmacopoeia standards. Sharing for awareness! 🏥",
+      "tags": ["jan-aushadhi", "pharmacy", "affordable-medicine", "generic"],
+      "likes": 76,
+      "shares": 28,
+      "created_at": 1789060000000
+    },
+    {
+      "id": "post-006",
+      "user_id": "user-demo-001",
+      "title": "❓ Can I take Paracetamol and Ibuprofen together?",
+      "body": "My doctor prescribed both Dolo 650 (Paracetamol) and Brufen (Ibuprofen) for fever and body pain. Is it safe to take both together? I'm confused because both are painkillers. Anyone has experience with this?",
+      "tags": ["question", "paracetamol", "ibuprofen", "drug-interaction"],
+      "likes": 34,
+      "shares": 8,
+      "created_at": 1789050000000
+    },
+    {
+      "id": "post-007",
+      "user_id": "user-demo-004",
+      "title": "Understanding your blood pressure medicines 💊",
+      "body": "Common BP medicines explained simply:\n\n🔵 Amlodipine (Amlong/Amlip) - Calcium channel blocker, relaxes blood vessels\n🔵 Telmisartan (Telma/Telmikind) - ARB, blocks hormone that narrows vessels\n🔵 Atenolol (Aten/Tenormin) - Beta blocker, slows heart rate\n🔵 Losartan (Losacar/Repace) - ARB, similar to Telmisartan\n\nAll available as Jan Aushadhi generics at 60-80% less cost!\n\nIMPORTANT: Never stop BP medicine suddenly. Always consult your doctor before any changes.",
+      "tags": ["blood-pressure", "hypertension", "medicine-education", "doctor-advice"],
+      "likes": 91,
+      "shares": 39,
+      "created_at": 1789040000000
+    },
+    {
+      "id": "post-008",
+      "user_id": "user-demo-002",
+      "title": "Scanned 10 medicines with MedSathi - Results surprised me!",
+      "body": "I scanned all 10 medicines in my medicine box using MedSathi. Results:\n\n✅ 8 medicines were genuine and verified\n⚠️ 1 medicine was close to expiry (15 days left)\n💰 For 6 medicines, Jan Aushadhi alternatives were available\n📊 Total potential savings: ₹1,200/month!\n\nI'm gradually switching to Jan Aushadhi for all medicines where generic is available. Same salt composition, same effect, huge savings!",
+      "tags": ["review", "savings", "jan-aushadhi", "medicine-scan"],
+      "likes": 55,
+      "shares": 19,
+      "created_at": 1789030000000
+    }
   ],
   "community_comments": [
     { "id": "cc-001", "post_id": "cp-001", "user_id": "seed-user-002", "body": "Both have the same active ingredient (paracetamol), so the effect should be similar. I personally prefer Dolo 650 because the higher dose works better for me.", "parent_comment_id": null, "created_at": 1717201000 },
