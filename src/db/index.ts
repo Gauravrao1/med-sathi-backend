@@ -182,6 +182,34 @@ if (!medicineCount || medicineCount.cnt === 0) {
       }
       // Demo user so scan works without registration
       insertUser.run('demo-user-001', '9999999999', 'Demo User', Date.now());
+
+      // Seed community demo data from seed-data.json
+      const __filename2 = fileURLToPath(import.meta.url);
+      const __dirname2 = path.dirname(__filename2);
+      const seedPath = path.resolve(__dirname2, 'seed-data.json');
+      if (fs.existsSync(seedPath)) {
+        const seedData = JSON.parse(fs.readFileSync(seedPath, 'utf8'));
+        const insertUserFull = sqlite.prepare('INSERT OR IGNORE INTO users (id, phone, name, age_bracket, preferred_language, chronic_conditions, created_at, consent_given_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+        if (seedData.users) {
+          for (const u of seedData.users) {
+            insertUserFull.run(u.id, u.phone, u.name, u.age_bracket || null, u.preferred_language || 'en', u.chronic_conditions || null, u.created_at, u.consent_given_at || null);
+          }
+        }
+        const insertPost = sqlite.prepare('INSERT OR IGNORE INTO community_posts (id, user_id, medicine_id, title, body, tags, likes, shares, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        if (seedData.community_posts) {
+          for (const p of seedData.community_posts) {
+            const tags = Array.isArray(p.tags) ? JSON.stringify(p.tags) : p.tags;
+            insertPost.run(p.id, p.user_id, p.medicine_id || null, p.title, p.body, tags, p.likes || 0, p.shares || 0, p.created_at);
+          }
+        }
+        const insertComment = sqlite.prepare('INSERT OR IGNORE INTO community_comments (id, post_id, user_id, body, parent_comment_id, created_at) VALUES (?, ?, ?, ?, ?, ?)');
+        if (seedData.community_comments) {
+          for (const c of seedData.community_comments) {
+            insertComment.run(c.id, c.post_id, c.user_id, c.body, c.parent_comment_id || null, c.created_at);
+          }
+        }
+        console.log('Auto-seed: community posts and comments seeded from seed-data.json');
+      }
     });
     seedAll();
     console.log('Auto-seed complete: ' + medicinesList.length + ' medicines, ' + batchesList.length + ' batches, ' + alternativesList.length + ' alternatives.');
