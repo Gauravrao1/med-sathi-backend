@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { db } from '../db/index.js';
 import * as schema from '../db/schema.js';
 import { eq } from 'drizzle-orm';
-const JWT_SECRET = process.env.JWT_SECRET || 'aslee-dev-secret-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET || 'medsathi-dev-secret-change-in-production';
 export const authenticate = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;

@@ -21,16 +21,30 @@ const router = Router();
 router.get('/posts', async (req, res) => {
     try {
         const medicineId = req.query.medicine_id ? parseInt(req.query.medicine_id) : undefined;
-        let query = db.select().from(schema.community_posts).orderBy(desc(schema.community_posts.created_at));
+        let posts;
         if (medicineId) {
-            query = db.select().from(schema.community_posts)
+            posts = await db.select().from(schema.community_posts)
                 .where(eq(schema.community_posts.medicine_id, medicineId))
                 .orderBy(desc(schema.community_posts.created_at));
         }
-        const posts = await query;
-        res.json(posts);
+        else {
+            posts = await db.select().from(schema.community_posts).orderBy(desc(schema.community_posts.created_at));
+        }
+        // Enrich with user_name and comment_count
+        const enriched = [];
+        for (const post of posts) {
+            const userRows = await db.select().from(schema.users).where(eq(schema.users.id, post.user_id));
+            const cmts = await db.select().from(schema.community_comments).where(eq(schema.community_comments.post_id, post.id));
+            enriched.push({
+                ...post,
+                user_name: userRows.length > 0 ? userRows[0].name : 'Anonymous User',
+                comment_count: cmts.length
+            });
+        }
+        res.json(enriched);
     }
     catch (error) {
+        console.error('Community posts error:', error);
         res.status(500).json({ error: 'Failed to fetch community posts' });
     }
 });
@@ -147,7 +161,16 @@ router.get('/posts/:id/comments', async (req, res) => {
         const comments = await db.select().from(schema.community_comments)
             .where(eq(schema.community_comments.post_id, postId))
             .orderBy(schema.community_comments.created_at);
-        res.json(comments);
+        // Enrich with user_name
+        const enriched = [];
+        for (const c of comments) {
+            const userRows = await db.select().from(schema.users).where(eq(schema.users.id, c.user_id));
+            enriched.push({
+                ...c,
+                user_name: userRows.length > 0 ? userRows[0].name : 'User'
+            });
+        }
+        res.json(enriched);
     }
     catch (error) {
         res.status(500).json({ error: 'Failed to fetch comments' });

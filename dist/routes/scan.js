@@ -73,10 +73,20 @@ router.post('/image', authenticate, upload.single('image'), async (req, res) => 
         const mimeType = req.file.mimetype;
         // Extract info from image
         const extractedInfo = await imageScanner.extractFromImage(imageBuffer, mimeType);
-        // Try to match medicine
+        // Try to match medicine in local DB
         let match = null;
         if (extractedInfo.medicine_name) {
             match = await dataProvider.findMedicineByName(extractedInfo.medicine_name);
+        }
+        // Run AI verification in parallel (works without DB match)
+        let aiVerification = null;
+        if (extractedInfo.medicine_name) {
+            try {
+                aiVerification = await imageScanner.verifyWithAI(extractedInfo);
+            }
+            catch (aiErr) {
+                console.error('AI verification error (non-fatal):', aiErr);
+            }
         }
         let trustScoreResult = null;
         let scanRecord = {
@@ -92,7 +102,8 @@ router.post('/image', authenticate, upload.single('image'), async (req, res) => 
             batch: null,
             trust_score: null,
             alternatives: [],
-            recalls: []
+            recalls: [],
+            ai_verification: aiVerification
         };
         if (match) {
             // Find a batch for this medicine to simulate full info (or if batch_number extracted, use it)
@@ -118,7 +129,8 @@ router.post('/image', authenticate, upload.single('image'), async (req, res) => 
             }
         }
         else if (extractedInfo.medicine_name) {
-            resultPayload.status = 'unverified';
+            // Not in our DB, but AI verified — show as ai_verified
+            resultPayload.status = aiVerification ? 'ai_verified' : 'unverified';
         }
         else {
             // No data extracted at all — likely no API key

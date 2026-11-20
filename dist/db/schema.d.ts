@@ -40,6 +40,44 @@ export declare const users: import("drizzle-orm/sqlite-core").SQLiteTableWithCol
         }, {}, {
             length: number | undefined;
         }>;
+        email: import("drizzle-orm/sqlite-core").SQLiteColumn<{
+            name: "email";
+            tableName: "users";
+            dataType: "string";
+            columnType: "SQLiteText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {
+            length: number | undefined;
+        }>;
+        password_hash: import("drizzle-orm/sqlite-core").SQLiteColumn<{
+            name: "password_hash";
+            tableName: "users";
+            dataType: "string";
+            columnType: "SQLiteText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {
+            length: number | undefined;
+        }>;
         name: import("drizzle-orm/sqlite-core").SQLiteColumn<{
             name: "name";
             tableName: "users";

@@ -16,4 +16,5 @@ export declare class GeminiChatProvider implements AIChatProvider {
     private mockProvider;
     constructor();
     chat(messages: ChatMessage[], medicineContext: Medicine | null): Promise<string>;
+    private buildSystemPrompt;
 }

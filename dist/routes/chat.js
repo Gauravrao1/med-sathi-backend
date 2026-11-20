@@ -51,7 +51,8 @@ router.post('/', authenticate, async (req, res) => {
         res.json({ session_id: sessionId, response: aiResponse });
     }
     catch (error) {
-        res.status(500).json({ error: 'AI chat failed' });
+        console.error('AI chat error:', error);
+        res.status(500).json({ error: 'AI chat failed. Please try again.' });
     }
 });
 router.get('/sessions', authenticate, async (req, res) => {
