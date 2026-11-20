@@ -9,7 +9,7 @@ import { authenticate } from '../middleware/auth.js';
 import crypto from 'crypto';
 
 const router = Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'aslee-dev-secret-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET || 'medsathi-dev-secret-change-in-production';
 
 // Strip sensitive fields before sending user data to client
 function sanitizeUser(user: any) {

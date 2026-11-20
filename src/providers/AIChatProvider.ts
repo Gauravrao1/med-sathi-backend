@@ -217,9 +217,9 @@ export class MockAIChatProvider implements AIChatProvider {
     // Greetings
     if (messageCount === 1 && (lastMessage.match(/^(hi|hello|hey|namaste|hola)/))) {
       if (medicineContext) {
-        return 'Hello! I\'m Aslee AI, your medicine information assistant. 👋\n\nI see you\'re looking at ' + medicineContext.brand_name + ' (' + medicineContext.generic_name + '). I can help you with:\n\n• What this medicine is used for\n• Side effects to watch for\n• How it works in your body\n• Price comparison with generics\n• Storage instructions\n\nWhat would you like to know?' + DISCLAIMER;
+        return 'Hello! I\'m MedSathi AI, your medicine information assistant. 👋\n\nI see you\'re looking at ' + medicineContext.brand_name + ' (' + medicineContext.generic_name + '). I can help you with:\n\n• What this medicine is used for\n• Side effects to watch for\n• How it works in your body\n• Price comparison with generics\n• Storage instructions\n\nWhat would you like to know?' + DISCLAIMER;
       }
-      return 'Hello! I\'m Aslee AI, your medicine information assistant. 👋\n\nI can help you with:\n• Information about any medicine\n• Understanding generic vs branded medicines\n• Finding affordable alternatives\n• General health topics\n• Jan Aushadhi scheme details\n\nAsk me anything about medicines!' + DISCLAIMER;
+      return 'Hello! I\'m MedSathi AI, your medicine information assistant. 👋\n\nI can help you with:\n• Information about any medicine\n• Understanding generic vs branded medicines\n• Finding affordable alternatives\n• General health topics\n• Jan Aushadhi scheme details\n\nAsk me anything about medicines!' + DISCLAIMER;
     }
 
     // Try to find medicine knowledge from the query
@@ -454,7 +454,7 @@ export class GeminiChatProvider implements AIChatProvider {
       // Build history with system context as first exchange
       const history = [
         { role: 'user' as const, parts: [{ text: 'System context: ' + systemPrompt }] },
-        { role: 'model' as const, parts: [{ text: 'Understood. I am Aslee AI, ready to help with medicine information following all the rules you specified.' }] }
+        { role: 'model' as const, parts: [{ text: 'Understood. I am MedSathi AI, ready to help with medicine information following all the rules you specified.' }] }
       ];
 
       // Add conversation history
@@ -477,7 +477,7 @@ export class GeminiChatProvider implements AIChatProvider {
   }
 
   private buildSystemPrompt(medicineContext: Medicine | null): string {
-    let prompt = 'You are Aslee AI, a knowledgeable Indian pharmacy and medicine assistant built for the MedSathi app. ' +
+    let prompt = 'You are MedSathi AI, a knowledgeable Indian pharmacy and medicine assistant built for the MedSathi app. ' +
       'You help Indian consumers understand their medicines, find affordable alternatives, and stay safe.\n\n' +
 
       '## YOUR CORE RULES:\n' +

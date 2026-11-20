@@ -192,6 +192,36 @@
       "likes": 55,
       "shares": 19,
       "created_at": 1789030000000
+    },
+    {
+      "id": "post-009",
+      "user_id": "user-demo-003",
+      "title": "My mother was taking a recalled medicine and we didn't know 😨",
+      "body": "My mother has been taking a blood pressure medicine for 2 years. Last week I scanned it on MedSathi and found out the batch was under recall! The pharmacy had no idea either.\n\nWe immediately contacted her doctor who switched her to a different batch. Please scan ALL your medicines regularly, especially if you buy from small pharmacies.\n\nMedSathi literally saved my mother from taking a potentially harmful medicine. Everyone should know about CDSCO recalls — the app shows them automatically!",
+      "tags": ["recall", "safety", "blood-pressure", "awareness", "family-health"],
+      "likes": 134,
+      "shares": 67,
+      "created_at": 1789020000000
+    },
+    {
+      "id": "post-010",
+      "user_id": "user-demo-005",
+      "title": "Price comparison: Branded vs Jan Aushadhi for my monthly medicines 💰",
+      "body": "Here's my monthly medicine bill comparison:\n\n📌 Branded:\n- Atorva 10 (Atorvastatin): ₹142\n- Telma 40 (Telmisartan): ₹198\n- Glycomet 500 (Metformin): ₹85\n- Dolo 650 (Paracetamol): ₹31\nTotal: ₹456/month\n\n📌 Jan Aushadhi Generic:\n- Atorvastatin 10mg: ₹12\n- Telmisartan 40mg: ₹14\n- Metformin 500mg: ₹8\n- Paracetamol 650mg: ₹3\nTotal: ₹37/month\n\n💚 Monthly savings: ₹419 (92% less!)\n💚 Yearly savings: ₹5,028\n\nSame salts, same effect. I confirmed with my doctor before switching. Wake up India! 🇮🇳",
+      "tags": ["price-comparison", "jan-aushadhi", "savings", "generic-medicine"],
+      "likes": 203,
+      "shares": 89,
+      "created_at": 1789010000000
+    },
+    {
+      "id": "post-011",
+      "user_id": "user-demo-004",
+      "title": "🏥 Doctor's tip: Never do these 5 things with antibiotics",
+      "body": "As a practicing physician, here are 5 common antibiotic mistakes I see daily:\n\n1️⃣ NEVER stop antibiotics early because you feel better — complete the full course\n2️⃣ NEVER share antibiotics with family members — different infections need different treatments\n3️⃣ NEVER take antibiotics for viral infections (cold, flu) — they don't work\n4️⃣ NEVER skip doses — take at regular intervals as prescribed\n5️⃣ NEVER self-prescribe antibiotics from pharmacy — always get a prescription\n\nAntibiotic resistance is a serious problem in India. Misuse of antibiotics makes them less effective over time. This affects ALL of us.\n\nShare this widely! 🙏",
+      "tags": ["doctor-advice", "antibiotics", "health-education", "awareness"],
+      "likes": 178,
+      "shares": 92,
+      "created_at": 1789000000000
     }
   ],
   "community_comments": [
@@ -201,7 +231,18 @@
     { "id": "cc-004", "post_id": "cp-003", "user_id": "seed-user-002", "body": "Always take Thyronorm on an empty stomach, at least 30 minutes before breakfast. This is the standard medical guidance for levothyroxine.", "parent_comment_id": null, "created_at": 1717401000 },
     { "id": "cc-005", "post_id": "cp-006", "user_id": "seed-user-001", "body": "I've been using Jan Aushadhi medicines for 2 years — paracetamol, metformin, and antacids. They work just as well. Huge savings!", "parent_comment_id": null, "created_at": 1717701000 },
     { "id": "cc-006", "post_id": "cp-006", "user_id": "seed-user-003", "body": "Generic medicines have the same active ingredient and are tested by CDSCO. The only difference is the brand name and packaging.", "parent_comment_id": "cc-005", "created_at": 1717702000 },
-    { "id": "cc-007", "post_id": "cp-007", "user_id": "seed-user-003", "body": "Muscle pain can be a side effect of statins. Please mention this to your doctor — they may reduce the dose or switch your medication.", "parent_comment_id": null, "created_at": 1717801000 }
+    { "id": "cc-007", "post_id": "cp-007", "user_id": "seed-user-003", "body": "Muscle pain can be a side effect of statins. Please mention this to your doctor — they may reduce the dose or switch your medication.", "parent_comment_id": null, "created_at": 1717801000 },
+    { "id": "cc-008", "post_id": "post-001", "user_id": "user-demo-002", "body": "Same here! Switched my parents' BP medicines to Jan Aushadhi. Saving almost ₹500/month now. Quality is exactly the same.", "parent_comment_id": null, "created_at": 1789101000000 },
+    { "id": "cc-009", "post_id": "post-001", "user_id": "user-demo-004", "body": "As a doctor, I can confirm generics have the same bioequivalence as branded medicines. The active ingredient, dose, and therapeutic effect are identical.", "parent_comment_id": "cc-008", "created_at": 1789102000000 },
+    { "id": "cc-010", "post_id": "post-002", "user_id": "user-demo-003", "body": "Thank you doctor! Very helpful checklist. I always scan my medicines on MedSathi now before taking them.", "parent_comment_id": null, "created_at": 1789091000000 },
+    { "id": "cc-011", "post_id": "post-002", "user_id": "user-demo-005", "body": "Point 5 is so important — scanning takes just 10 seconds and gives you full verification. Everyone should do this!", "parent_comment_id": null, "created_at": 1789092000000 },
+    { "id": "cc-012", "post_id": "post-004", "user_id": "user-demo-001", "body": "This is scary! 😱 I'm going to check all my medicines right now. Thanks for sharing this experience.", "parent_comment_id": null, "created_at": 1789071000000 },
+    { "id": "cc-013", "post_id": "post-004", "user_id": "user-demo-004", "body": "Expired medicines can lose their effectiveness and may even become toxic. Always check expiry dates. Good that you caught it in time!", "parent_comment_id": "cc-012", "created_at": 1789072000000 },
+    { "id": "cc-014", "post_id": "post-009", "user_id": "user-demo-001", "body": "Oh my god, this is terrifying! Glad your mother is okay. I'm scanning all my family's medicines tonight.", "parent_comment_id": null, "created_at": 1789021000000 },
+    { "id": "cc-015", "post_id": "post-010", "user_id": "user-demo-002", "body": "₹5,028 saved per year! That's incredible. I'm showing this to my parents who think generic medicines are 'low quality'.", "parent_comment_id": null, "created_at": 1789011000000 },
+    { "id": "cc-016", "post_id": "post-010", "user_id": "user-demo-004", "body": "Great comparison! As a doctor I always tell my patients — the salt is the same, the manufacturing standards are the same. Only the brand name is different. Save your money!", "parent_comment_id": "cc-015", "created_at": 1789012000000 },
+    { "id": "cc-017", "post_id": "post-011", "user_id": "user-demo-003", "body": "So true! My neighbor self-prescribed antibiotics for a cold and wondered why they didn't work. Antibiotics don't treat viral infections!", "parent_comment_id": null, "created_at": 1789001000000 },
+    { "id": "cc-018", "post_id": "post-011", "user_id": "user-demo-005", "body": "Sharing this with all my WhatsApp groups. Antibiotic resistance is becoming a huge problem in India. Thanks doctor! 🙏", "parent_comment_id": null, "created_at": 1789002000000 }
   ],
   "experience_posts": [
     { "id": "ep-001", "user_id": "seed-user-001", "medicine_id": 1, "condition_tag": "fever", "media_type": "text", "content_url": null, "caption": "Used Dolo 650 for viral fever last month. Temperature came down within 45 minutes of taking the first dose. Took it 3 times a day for 3 days. No side effects at all. Very effective for fever relief.", "status": "approved", "created_at": 1717250000 },
