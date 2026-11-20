@@ -60,7 +60,9 @@ app.use('/api/chat', chatRoutes);
 app.get('/', (_req, res) => res.json({
   name: 'MedSathi Backend',
   status: 'ok',
-  health: '/health'
+  health: '/health',
+  gemini_configured: !!process.env.GEMINI_API_KEY,
+  gemini_key_prefix: process.env.GEMINI_API_KEY ? process.env.GEMINI_API_KEY.substring(0, 6) + '...' : 'NOT SET'
 }));
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
